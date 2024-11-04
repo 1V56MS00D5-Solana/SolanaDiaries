@@ -1,0 +1,25 @@
+class Horse:
+    def __init__(self, name, breed):
+        self.name = name
+        self.breed = breed
+        self.stamina = 100
+        self.distance_traveled = 0
+    
+    def gallop(self, distance):
+        stamina_cost = distance * 0.5
+        if self.stamina >= stamina_cost:
+            self.stamina -= stamina_cost
+            self.distance_traveled += distance
+            return f"{self.name} galloped {distance} meters!"
+        return f"{self.name} needs rest!"
+    
+    def rest(self, hours):
+        self.stamina = min(100, self.stamina + hours * 15)
+        return f"{self.name} rested for {hours} hours"
+    
+    def trot(self):
+        if self.stamina >= 10:
+            self.stamina -= 10
+            self.distance_traveled += 100
+            return f"{self.name} trotted gracefully!"
+        return f"{self.name} is too tired to trot"
