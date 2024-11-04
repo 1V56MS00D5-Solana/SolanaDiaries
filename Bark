@@ -1,0 +1,22 @@
+class Dog:
+    def __init__(self, name, breed):
+        self.name = name
+        self.breed = breed
+        self.happiness = 100
+        self.tricks = []
+    
+    def bark(self, intensity):
+        if intensity == "soft":
+            return "woof..."
+        elif intensity == "medium":
+            return "Woof! Woof!"
+        return "WOOF! WOOF! WOOF!"
+    
+    def learn_trick(self, trick):
+        self.tricks.append(trick)
+        self.happiness += 10
+        return f"{self.name} learned to {trick}!"
+    
+    def go_for_walk(self, minutes):
+        self.happiness = min(100, self.happiness + minutes/2)
+        return f"{self.name} enjoyed a {minutes}-minute walk!"
