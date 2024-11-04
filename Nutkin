@@ -1,0 +1,20 @@
+class Nutkin:
+    def __init__(self, territory):
+        self.territory = territory
+        self.stored_nuts = 0
+        self.energy = 100
+    
+    def collect_nuts(self, amount):
+        self.energy -= amount * 2
+        self.stored_nuts += amount
+        return f"Collected {amount} nuts for winter!"
+    
+    def climb_tree(self, height):
+        energy_cost = height * 1.5
+        if self.energy >= energy_cost:
+            self.energy -= energy_cost
+            return f"Climbed {height} meters up the tree!"
+        return "Too tired to climb!"
+    
+    def prepare_for_winter(self):
+        return f"This squirrel has stored {self.stored_nuts} nuts in {self.territory}!"
